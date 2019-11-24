@@ -13,6 +13,6 @@ minimum and maximum values possible in this case are respectively 5, and 28.
 
 ## How to install :
 
-1> npm install rj-dice-roller -g
-2> diceRoller 4D8 - 5D6
-3> You will get the output
+ - npm install rj-dice-roller -g
+ - diceRoller 4D8 - 5D6
+ - You will get the output
