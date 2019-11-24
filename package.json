@@ -1,6 +1,6 @@
 {
   "name": "rj-dice-roller",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Cli tool to silmulate dice roller",
   "main": "src/index.js",
   "scripts": {
