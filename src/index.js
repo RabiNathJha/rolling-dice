@@ -15,8 +15,8 @@ export function main(args){
 
 const print = (outcomes) => {
     outcomes.rollDiceLogs.forEach((diceRoll, index) => {
-        console.log(`${chalk.bold.blue(`Dice ${index+1}:`)} ${chalk.bold.yellow(diceRoll)}`);
+        console.log(`${chalk.bold.blue(`Roll ${index+1}:`)} ${chalk.bold.yellow(diceRoll)}`);
     });
 
-    console.log(`${chalk.bold.green('\nResult: ')} ${chalk.bgGreen.bold.red(` ${outcomes.result} \n`)}`)
+    console.log(`${chalk.bold.green('\nResult: ')} ${chalk.bgGreen.bold.black(` ${outcomes.result} \n`)}`)
 }
