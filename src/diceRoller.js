@@ -4,20 +4,24 @@ export default (params) => {
 
     let operator = '';
     let currOutcome = 0;
-    let overallOutcome = 0;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    let overallOutcome = 0;
+    let rollDiceLogs = [];                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
     for(let i=0; i<params.length; i++){
         if(i % 2 === 0){
-            currOutcome = rollDices(parseReqInputs(params[0]));
-            console.log(currOutcome);
-            overallOutcome = (operator)? eval(`${overallOutcome} ${operator} ${currOutcome}`) : currOutcome 
+            currOutcome = rollDices(parseReqInputs(params[i]));
+            overallOutcome = (operator)? eval(`${overallOutcome} ${operator} ${currOutcome.sumOfOutcomes}`) : currOutcome.sumOfOutcomes;
+            rollDiceLogs.push(currOutcome.arrayOfDiceOutcomes);
         }
         else {
             operator = params[i];
         }
     }
 
-    return Math.abs(overallOutcome);
+    return {
+        result: Math.abs(overallOutcome),
+        rollDiceLogs
+    }
 }
 
 
@@ -28,8 +32,9 @@ function rollDices({noOfDice, sidesOfDice}){
         arrayOfDiceOutcomes.push(prng(1, sidesOfDice + 1));
     }
 
-    console.log(arrayOfDiceOutcomes);
-    return getSumOfArrayElements(arrayOfDiceOutcomes);
+    return {
+        arrayOfDiceOutcomes,
+        sumOfOutcomes:getSumOfArrayElements(arrayOfDiceOutcomes)};
 }
 
 const parseReqInputs = (input) => {
