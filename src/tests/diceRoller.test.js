@@ -1,8 +1,8 @@
 import chiSquaredTest from 'chi-squared-test';
 import prng from '../prng';
 
-describe('Testing dice roller randomness', () => {
-    it('testing randomness', () => {
+describe('Testing PRNG randomness using chi-squared-test', () => {
+    it('Should return true when chiSquaredTest probability is less than 0.01', () => {
         const min = 1;
         const max = 20;
 
